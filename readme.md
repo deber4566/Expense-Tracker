@@ -5,3 +5,7 @@
 ## Features
 
 ## Technologies Used
+
+- HTML
+- CSS
+- Javascript
