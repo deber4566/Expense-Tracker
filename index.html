@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <!-- Link external stylesheet (Step 2) -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <h1>Expense Tracker</h1>
+
+        <!-- 
+            Expense Form:
+            'novalidate' disables default browser popups so our JavaScript (Step 3) 
+            can display the custom validation messages directly on the page.
+        -->
+        <form id="expense-form" novalidate>
+            <div class="form-group">
+                <label for="expense-name">Expense Name:</label>
+                <input 
+                    type="text" 
+                    id="expense-name" 
+                    placeholder="e.g. Dinner, Uber, Hammer"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="expense-amount">Amount:</label>
+                <input 
+                    type="number" 
+                    id="expense-amount" 
+                    step="any" 
+                    placeholder="e.g. 100 or 50.02"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="expense-category">Category:</label>
+                <input 
+                    type="text" 
+                    id="expense-category" 
+                    placeholder="e.g. Food, Travel, Shopping, Tools"
+                >
+            </div>
+
+            <button type="submit" id="add-expense-btn">Add Expense</button>
+        </form>
+
+        <!-- Error Message Container (hidden when empty, populated by JS on invalid input) -->
+        <p id="error-message" class="error-message" role="alert" aria-live="polite"></p>
+
+        <!-- Expense List Section -->
+        <section class="expenses-section">
+            <h2>Expenses</h2>
+            <ul id="expense-list" class="expense-list">
+                <!-- JavaScript will dynamically insert <li> items here -->
+            </ul>
+        </section>
+
+        <!-- Total Display Section -->
+        <div id="total-display" class="total-display">
+            Total: <span id="total-amount">0</span>
+        </div>
+    </main>
+
+    <!-- Link external JavaScript file at the end so HTML elements load first -->
+    <script src="script.js"></script>
+</body>
+</html>
+

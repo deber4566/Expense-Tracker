@@ -3,8 +3,8 @@ Context: I am working on an expense tracker web page with assistance from AI. Th
 The purpose of this is to help track expenses.
 Task: Write code to implement this expense tracker. This application should have the following:
 
-1. Add an expense with a name, amount, and category (e.g. Food, travel, or shopping)
-2. Display the expenses entered by the user
+1. Add an expense with a name, amount, and category (e.g. Food, travel, shopping or other categories that user can input)
+2. Display the expenses entered by the user. Round to two decimal places.
 3. Show the total amount spent
 4. Allow the user to delete an expense.
 5. Show a simple message for invalid inputs, such as an empty name or an amount that is zero or negative
@@ -20,8 +20,9 @@ Do not invent missing project components or requirements. Ask for clarification 
 
 Examples with expected behavior or format:
 Expense: Dinner , Amount: 100 , Category: Food
-Expense: Uber, Amount: 50, Category: Travel
-Total: 150
+Expense: Uber, Amount: 50.02, Category: Travel
+Expense: Hammer, Amount: 5.09, Category: Tools
+Total: 155.11
 
 Invalid Input:
 Expense: Lunch, Amount: -50, Category: Food -> "Invalid expense amount, amount must be greater than 0."
@@ -29,6 +30,8 @@ Expense: Lunch, Amount: -50, Category: Food -> "Invalid expense amount, amount m
 Output Format:
 
 Follow the examples in the examples section.
+Whole numbers are to be displayed without trailing zeroes.
+User can type in any category.
 Complete implementation with relevant file names.
 Explanation of the important logic inside the codebase with proper comments.
 Relevant testing and verification steps.
