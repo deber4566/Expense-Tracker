@@ -1,0 +1,136 @@
+/* 
+ * Basic Reset & Page Layout 
+ * Ensures consistent sizing and centers the main card on the page.
+ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f6f8;
+    color: #333333;
+    padding: 40px 20px;
+}
+
+/* Main Expense Tracker Card */
+.container {
+    max-width: 550px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 24px;
+    margin-bottom: 12px;
+    font-size: 18px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 6px;
+}
+
+/* Form Layout & Inputs */
+.form-group {
+    margin-bottom: 14px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+/* Submit Button */
+#add-expense-btn {
+    width: 100%;
+    padding: 10px 16px;
+    background-color: #2563eb;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 4px;
+}
+
+#add-expense-btn:hover {
+    background-color: #1d4ed8;
+}
+
+/* Validation Error Message */
+.error-message {
+    color: #dc2626;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 12px;
+    min-height: 20px;
+}
+
+/* Expense List & Individual Expense Items */
+.expense-list {
+    list-style-type: none;
+    margin-bottom: 16px;
+}
+
+.expense-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+/* Delete Button inside each Expense Item */
+.delete-btn {
+    padding: 6px 12px;
+    background-color: #ef4444;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    font-size: 13px;
+    cursor: pointer;
+    margin-left: 12px;
+}
+
+.delete-btn:hover {
+    background-color: #dc2626;
+}
+
+/* Running Total Display */
+.total-display {
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+    padding-top: 12px;
+    border-top: 2px solid #e5e7eb;
+}
+
