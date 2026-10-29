@@ -38,6 +38,7 @@
 ### Invalid Amount
 
 ![Invalid Amount](./Screenshots/InvalidAmount.png)
+![Negative Amount](./Screenshots/NegativeAmount.png)
 
 ### Empty Category
 
