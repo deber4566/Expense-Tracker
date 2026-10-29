@@ -1,0 +1,47 @@
+Here is a step-by-step plan to build the Expense Tracker using your existing project files (index.html, style.css, and script.js). Since you have a Python background, I have mapped the web concepts to familiar Python equivalents where helpful. No code has been generated yet.
+
+Step 1: Create the Page Structure (index.html)
+
+Think of HTML as defining the layout and widgets of a GUI (similar to tkinter widgets), giving each interactive element a unique id so JavaScript can reference it:
+
+Link Files: Connect style.css in the <head> and script.js at the bottom of the <body>.
+Expense Input Form:
+Text input for Expense Name (e.g., Dinner).
+Number input for Amount (e.g., 100).
+Dropdown (<select>) for Category (Food, Travel, Shopping, Other).
+Submit button (Add Expense).
+Validation Message Area: A dedicated text container to show error messages when invalid input is entered.
+Expense List Container: An unordered list (<ul>) where each added expense will be rendered.
+Total Display: A container showing Total: 0 initially.
+Step 2: Style the Interface (style.css)
+
+Keep styling clean, readable, and minimal:
+
+Page Layout: Center the main container on the screen with a clean font, subtle border/shadow, and comfortable padding.
+Form & Controls: Arrange the inputs and the Add Expense button neatly so they are easy to read and interact with.
+Error Message Styling: Style the validation message in red so invalid input alerts stand out clearly.
+Expense Items & Delete Button: Format each expense row so the text (Expense: Dinner, Amount: 100, Category: Food) aligns nicely with its Delete button on the right.
+Step 3: Set Up State & Input Validation (script.js)
+
+Write the core data management and validation logic (similar to maintaining a Python list of dicts):
+
+Step 4: Number Formatting and Rounding Logic
+In-Memory Data Store: Create an expenses array where each item is an object containing id, name, amount, and category.
+Input Validation Function: Check user inputs before modifying the state:
+Empty/Whitespace Name: If the trimmed name is empty, display an error message (e.g., "Invalid expense name, name cannot be empty.").
+Invalid Amount: If the amount is missing, not a number (NaN), 0, or negative, display "Invalid expense amount, amount must be greater than 0." (matching your example).
+Missing Category: Ensure a valid category is selected.
+Clear Errors: Clear any existing error message once a valid expense is submitted.
+Step 5: Add, Render, and Calculate Totals (script.js)
+
+Connect the UI events to the expenses array:
+
+Add Expense Handler: Listen for form submission, validate inputs, append the new expense object to the expenses array, and reset the form fields.
+Render Expense List: Clear and rebuild the displayed list from the expenses array, formatting each item as: Expense: <name>, Amount: <amount>, Category: <category> alongside a Delete button.
+Calculate Total: Sum all amount values in the expenses array (like Python's sum(item['amount'] for item in expenses)) and update the page to display Total: <sum>.
+Step 6: Implement Expense Deletion (script.js)
+Delete Handler: When a user clicks the Delete button next to an expense, filter out that expense from the expenses array using its unique id.
+Refresh UI: Re-run the render and total calculation functions so both the list and Total update immediately.
+Step 7: Code Walkthrough & Verification Checklist
+Code Comments & Explanation: Provide clear comments inside the files and walk through how the HTML DOM events connect to the JavaScript functions.
+Testing & Verification Steps: Provide a checklist to verify the examples (Dinner = 100, Uber = 50 -> Total: 150), deletion updates, and edge cases (-50, 0, empty name, decimal amounts), explicitly noting what has been tested vs. what requires manual browser testing.

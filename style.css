@@ -97,6 +97,13 @@ h2 {
     margin-bottom: 16px;
 }
 
+.empty-message {
+    color: #6b7280;
+    font-style: italic;
+    font-size: 14px;
+    padding: 8px 0;
+}
+
 .expense-item {
     display: flex;
     justify-content: space-between;

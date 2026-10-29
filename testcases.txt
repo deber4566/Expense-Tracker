@@ -1,0 +1,139 @@
+========================================================================
+EXPENSE TRACKER - TEST CASES & VERIFICATION CHECKLIST
+========================================================================
+
+------------------------------------------------------------------------
+1. CORE FUNCTIONALITY & PROMPT EXAMPLES
+------------------------------------------------------------------------
+Run these in sequence from a fresh page load (initial display: Total: $0):
+
+- TC-1.1: Whole Number Expense
+  * Input: Name = "Dinner", Amount = "100", Category = "Food"
+  * Expected List Output: Expense: Dinner, Amount: $100, Category: Food (no .00)
+  * Expected Total: Total: $100
+
+- TC-1.2: Decimal Expense
+  * Input: Name = "Uber", Amount = "50.02", Category = "Travel"
+  * Expected List Output: Expense: Uber, Amount: $50.02, Category: Travel
+  * Expected Total: Total: $150.02
+
+- TC-1.3: Custom Category
+  * Input: Name = "Hammer", Amount = "5.09", Category = "Tools"
+  * Expected List Output: Expense: Hammer, Amount: $5.09, Category: Tools
+  * Expected Total: Total: $155.11
+
+------------------------------------------------------------------------
+2. CASE-INSENSITIVE CATEGORIES & GROUPING
+------------------------------------------------------------------------
+Continuing from the expenses above (Food, Travel, Tools):
+
+- TC-2.1: Lowercase Category ("food")
+  * Input: Name = "Groceries", Amount = "44.89", Category = "food"
+  * Expected Behavior: Category normalizes to "Food". The row
+    "Expense: Groceries, Amount: $44.89, Category: Food" is grouped
+    directly under "Dinner" (Food), before "Uber" (Travel).
+  * Expected Total: Total: $200 (whole number sum shows without .00)
+
+- TC-2.2: Uppercase Category ("TRAVEL")
+  * Input: Name = "Hotel", Amount = "801.21", Category = "TRAVEL"
+  * Expected Behavior: Category normalizes to "Travel". Grouped directly
+    under "Uber" (Travel), before "Hammer" (Tools).
+  * Expected Total: Total: $1,001.21
+
+------------------------------------------------------------------------
+3. CURRENCY, COMMA FORMATTING & ROUNDING
+------------------------------------------------------------------------
+- TC-3.1: Thousands Commas (Whole Number)
+  * Input: Name = "Laptop", Amount = "1200", Category = "Shopping"
+  * Expected Displayed Amount: Amount: $1,200
+  * Reason: Whole numbers >= 1,000 include commas and omit .00.
+
+- TC-3.2: Thousands Commas (Decimal Number)
+  * Input: Name = "Flight", Amount = "1001.21", Category = "Travel"
+  * Expected Displayed Amount: Amount: $1,001.21
+  * Reason: Includes leading $, comma separator, and 2 decimal places.
+
+- TC-3.3: Single Decimal Digit
+  * Input: Name = "Coffee", Amount = "4.5", Category = "Food"
+  * Expected Displayed Amount: Amount: $4.50
+  * Reason: Non-whole numbers display rounded to 2 decimal places.
+
+- TC-3.4: 3+ Decimal Places (Round Up)
+  * Input: Name = "Gas", Amount = "35.678", Category = "Travel"
+  * Expected Displayed Amount: Amount: $35.68
+  * Reason: Rounds to 2 decimal places (35.678 -> 35.68).
+
+- TC-3.5: Trailing Zeroes Becoming Whole Number
+  * Input: Name = "Book", Amount = "20.00", Category = "Shopping"
+  * Expected Displayed Amount: Amount: $20
+  * Reason: 20.00 is a whole number, so trailing zeroes are omitted.
+
+- TC-3.6: User Types "$" and Commas Directly in Amount Input
+  * Input: Name = "Rent", Amount = "$1,250.50", Category = "Housing"
+  * Expected Displayed Amount: Amount: $1,250.50
+  * Reason: Validation strips optional "$" and "," before parsing the number.
+
+------------------------------------------------------------------------
+4. DELETING EXPENSES
+------------------------------------------------------------------------
+- TC-4.1: Delete Middle Item
+  * Action: With Dinner ($100), Uber ($50.02), and Hammer ($5.09) in the
+    list, click "Delete" next to Uber.
+  * Expected Behavior: Uber is removed from the list; Total immediately
+    updates from $155.11 to $105.09.
+
+- TC-4.2: Delete All Items
+  * Action: Click "Delete" on all remaining items.
+  * Expected Behavior: The list becomes empty and Total resets to Total: $0.
+
+------------------------------------------------------------------------
+5. INVALID INPUTS & EDGE CASES
+------------------------------------------------------------------------
+Verify that invalid inputs do NOT add an item to the list, do NOT change
+the Total, and display the expected red error message:
+
+- TC-5.1: Negative Amount (Prompt Example)
+  * Input: Name = "Lunch", Amount = "-50", Category = "Food"
+  * Expected Error: "Invalid expense amount, amount must be greater than 0."
+
+- TC-5.2: Zero Amount
+  * Input: Name = "Lunch", Amount = "0", Category = "Food"
+  * Expected Error: "Invalid expense amount, amount must be greater than 0."
+
+- TC-5.3: Tiny Amount Rounding to Zero
+  * Input: Name = "Penny", Amount = "0.001", Category = "Other"
+  * Expected Error: "Invalid expense amount, amount must be greater than 0."
+
+- TC-5.4: Non-Numeric Amount
+  * Input: Name = "Snack", Amount = "abc", Category = "Food"
+  * Expected Error: "Invalid expense amount, amount must be greater than 0."
+
+- TC-5.5: Empty Amount
+  * Input: Name = "Snack", Amount = "", Category = "Food"
+  * Expected Error: "Invalid expense amount, amount must be greater than 0."
+
+- TC-5.6: Empty or Spaces-Only Name
+  * Input: Name = "   ", Amount = "25", Category = "Food"
+  * Expected Error: "Invalid expense name, name cannot be empty."
+
+- TC-5.7: Empty or Spaces-Only Category
+  * Input: Name = "Dinner", Amount = "25", Category = "   "
+  * Expected Error: "Invalid category, category cannot be empty."
+
+- TC-5.8: Error Clears on Valid Submit
+  * Action: After triggering TC-5.1, submit Name = "Lunch", Amount = "15",
+    Category = "Food".
+  * Expected Behavior: The red error message disappears and Lunch is added.
+
+------------------------------------------------------------------------
+6. REVIEW & UNVERIFIED ITEMS
+------------------------------------------------------------------------
+1. Live Browser UI Verification:
+   The HTML, CSS, and JS files have been reviewed statically. Open
+   index.html in a web browser to manually verify visual rendering and
+   interactive clicks.
+2. Page Refresh Persistence:
+   Expenses are stored in an in-memory JavaScript array (no database or
+   localStorage was requested), so refreshing the browser resets the list
+   to empty (Total: $0).
+

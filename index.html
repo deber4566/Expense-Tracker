@@ -16,7 +16,7 @@
             'novalidate' disables default browser popups so our JavaScript (Step 3) 
             can display the custom validation messages directly on the page.
         -->
-        <form id="expense-form" novalidate>
+        <form id="expense-form" autocomplete="off" novalidate>
             <div class="form-group">
                 <label for="expense-name">Expense Name:</label>
                 <input 
@@ -29,9 +29,9 @@
             <div class="form-group">
                 <label for="expense-amount">Amount:</label>
                 <input 
-                    type="number" 
+                    type="text" 
+                    inputmode="decimal" 
                     id="expense-amount" 
-                    step="any" 
                     placeholder="e.g. 100 or 50.02"
                 >
             </div>
@@ -61,7 +61,7 @@
 
         <!-- Total Display Section -->
         <div id="total-display" class="total-display">
-            Total: <span id="total-amount">0</span>
+            Total: <span id="total-amount">$0</span>
         </div>
     </main>
 
