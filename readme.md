@@ -2,10 +2,11 @@
 
 ## Features- Track expenses
 
-- Add expenses
-- Delete expenses
-- Track total expenses
-- Error handling
+- Add expenses. The input is case insensitive. Users can input dollar sign ($) and commas (,).
+- Delete expenses and show that there are no expenses input if there is nothing.
+- Track total expe. Display the total with a dollar sign and commas (e.g., $1,001.21).
+- Group expenses together that are in the same category
+- Error hand for empty/whitespace name and zero/negative/non-number amount.
 
 ## Technologies Used
 
@@ -16,5 +17,3 @@
 # How to use
 
 - Open the index.html file in a web browser.
-
-We are on step 4 of the tasksteps.
