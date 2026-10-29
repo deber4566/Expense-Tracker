@@ -22,27 +22,27 @@
 
 ## Default View
 
-![Default View](./Screenshots\DefaultView.png)
+![Default View](./Screenshots/DefaultView.png)
 
 ## Valid Input
 
-![Valid Input](./Screenshots\ValidInput.png)
-![Decimal Input](./Screenshots\DecimalInput.png)
+![Valid Input](./Screenshots/ValidInput.png)
+![Decimal Input](./Screenshots/DecimalInput.png)
 
 ## Delete Functionality
 
-![Delete Functionality](./Screenshots\DeleteFunctionality.png)
+![Delete Functionality](./Screenshots/DeleteFunctionality.png)
 
 ## Invalid Inputs
 
 ### Invalid Amount
 
-![Invalid Amount](./Screenshots\InvalidAmount.png)
+![Invalid Amount](./Screenshots/InvalidAmount.png)
 
 ### Empty Category
 
-![Empty Category](./Screenshots\EmptyCategory.png)
+![Empty Category](./Screenshots/EmptyCategory.png)
 
 ### Empty Expense Name
 
-![Empty Expense Name](./Screenshots\EmptyExpenseName.png)
+![Empty Expense Name](./Screenshots/EmptyExpenseName.png)
