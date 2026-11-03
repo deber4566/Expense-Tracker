@@ -1,6 +1,6 @@
 # Improvements that were suggested to AI by me
 
-1. Display dollar signs and relevant commas for the output and allow user to input dollar signs and commas without creating an error. In real worl applications, dollar sign and comma input is very common, so having it is a must.
+1. Display dollar signs and relevant commas for the output and allow user to input dollar signs and commas without creating an error. In real world applications, dollar sign and comma input is very common, so having it is a must.
 2. Group categories with each other in the output. This will allow easier viewing by users.
 
 # Improvement that was suggest by AI
